@@ -13,19 +13,17 @@ export class TemperatureConverter implements OnInit {
   ngOnInit() {
     this.celsius = 0;
     this.fahrenheit = 0;
-    // C = (F − 32) × 5/9
-    // F = C*9/5 + 32
   }
 
   converTemperature(e, type) {
     const temperature = e.target.value;
     if(type === 'cel') {
       this.celsius = temperature;
-      this.fahrenheit = (temperature * 9) /5 +32;
+      this.fahrenheit = Number(((temperature * 9) /5 +32).toFixed(1));
     }
     else {
       this.fahrenheit = temperature;
-      this.celsius = (temperature-32) * 9 /5;
+      this.celsius = Number(((temperature - 32) * 5 / 9).toFixed(1));
     }
   }
 
